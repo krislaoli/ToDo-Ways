@@ -20,7 +20,7 @@ const MainApp = () => {
   return (
     // navbar bottom
     <Tab.Navigator
-      initialRouteName="AddList"
+      initialRouteName="Home"
       tabBar={(props) => <BottomNavigator {...props} />}
     >
       <Tab.Screen
@@ -44,7 +44,7 @@ const MainApp = () => {
 
 const Routes = () => {
   return (
-    <Stack.Navigator initialRouteName="MainApp">
+    <Stack.Navigator initialRouteName="AddCategory">
       <Stack.Screen
         name="Home"
         component={Home}
