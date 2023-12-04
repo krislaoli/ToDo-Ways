@@ -85,7 +85,7 @@ const ListTodo = () => {
       <View style={styles.container}>
         <View style={styles.rounded}>
           <Image
-            source={require("../public/img.png")}
+            source={require("../public/img/profile.png")}
             style={{ width: 45, height: 40 }}
           />
         </View>

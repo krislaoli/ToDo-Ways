@@ -20,7 +20,7 @@ const Home = () => {
       <View style={styles.container}>
         <View style={{ marginTop: 90 }}>
           <Image
-            source={require("../public/logo.png")}
+            source={require("../public/index_logo.png")}
             style={{ width: 228, height: 258 }}
           />
         </View>

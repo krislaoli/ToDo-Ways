@@ -24,7 +24,7 @@ const RegisterPage = () => {
       <View style={styles.container}>
         <View style={styles.centeredContent}>
           <Image
-            source={require("../public/login.png")}
+            source={require("../public/login_register_logo.png")}
             style={{ width: 270, height: 190, marginTop: -50, marginBottom: 30 }}
           />
         </View>
