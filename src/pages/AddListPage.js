@@ -1,9 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native"
 import React from "react"
 import MyTextInput from "../components/TextInput"
-import DateInput from "../components/DateInput"
-import MyButton from "../components/Button"
-// import MyDropdown from "../components/Dropdown"
 
 const AddList = () => {
   return (

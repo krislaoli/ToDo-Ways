@@ -9,7 +9,7 @@ import {
   ListTodo,
   Login,
   Register,
-  Splash,
+ 
 } from "../pages"
 import BottomNavigator from "../components/BottomNavigator/BottomBar"
 
@@ -48,11 +48,6 @@ const Routes = () => {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Splash"
-        component={Splash}
         options={{ headerShown: false }}
       />
       <Stack.Screen

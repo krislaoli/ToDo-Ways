@@ -5,6 +5,5 @@ import Home from "./HomePage"
 import ListTodo from "./ListTodoPage"
 import Login from "./LoginPage"
 import Register from "./RegisterPage"
-import Splash from "./Splash/Splash"
 
-export { AddCategory, AddList, Detail, Home, ListTodo, Login, Register, Splash }
+export { AddCategory, AddList, Detail, Home, ListTodo, Login, Register, }
