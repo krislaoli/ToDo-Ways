@@ -38,13 +38,13 @@ const MainApp = () => {
         component={AddList}
         options={{ headerShown: false }}
       />
-    </Tab.Navigator>
+    </Tab.Navigator> 
   )
 }
 
 const Routes = () => {
   return (
-    <Stack.Navigator initialRouteName="AddCategory">
+    <Stack.Navigator initialRouteName="MainApp">
       <Stack.Screen
         name="Home"
         component={Home}
