@@ -1,0 +1,5 @@
+// project url
+https://cnpnhzkpekcktpfvsowf.supabase.co
+
+// api key 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNucG5oemtwZWtja3RwZnZzb3dmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE4NjA2NDksImV4cCI6MjAxNzQzNjY0OX0.FBasT7Dgh2wF3GTzHl9go-L1HVqeyWJZPARg_1PmdvI
