@@ -44,7 +44,7 @@ const MainApp = () => {
 
 const Routes = () => {
   return (
-    <Stack.Navigator initialRouteName="AddCategory">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
         name="Home"
         component={Home}

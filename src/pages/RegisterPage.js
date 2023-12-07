@@ -20,9 +20,11 @@ const RegisterPage = () => {
   const [Password, setPassword] = useState("")
   const [Name, setName] = useState("")
 
+  const [loading, setLoading] = useState(false)
+
   const navigateLogin =
     async () => {
-      // navigation.navigate("Login")
+      setLoading(true)
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: Password,
@@ -32,8 +34,13 @@ const RegisterPage = () => {
           },
         }
       })
-      console.log(error);
-      navigation.navigate("Login")
+      console.log(data);
+      setLoading(false)
+      if (error) {
+        alert(error.message)
+      } else {
+        navigation.navigate("Login")
+      }
     }
 
   return (
