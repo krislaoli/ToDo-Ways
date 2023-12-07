@@ -10,13 +10,31 @@ import React from "react"
 import MyButton from "../components/Button"
 import MyTextInput from "../components/TextInput"
 import { useNavigation } from "@react-navigation/native"
+import { useState } from "react"
+import { supabase } from "../components/config/SupabaseClient"
+
 
 const RegisterPage = () => {
   const navigation = useNavigation()
+  const [email, setEmail] = useState("")
+  const [Password, setPassword] = useState("")
+  const [Name, setName] = useState("")
 
-  const navigateLogin = () => {
-    navigation.navigate("Login")
-  }
+  const navigateLogin =
+    async () => {
+      // navigation.navigate("Login")
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: Password,
+        options: {
+          data: {
+            name: Name
+          },
+        }
+      })
+      console.log(error);
+      navigation.navigate("Login")
+    }
 
   return (
     <ScrollView style={{ backgroundColor: "#EEE2DE" }}>
@@ -33,13 +51,13 @@ const RegisterPage = () => {
           Register
         </Text>
         <View style={{ marginTop: 0 }}>
-          <MyTextInput placeholder="Email" />
-          <MyTextInput placeholder="Name" />
-          <MyTextInput placeholder="Password" isPassword={true} />
+          <MyTextInput onChangeText={setEmail} placeholder="Email" />
+          <MyTextInput onChangeText={setName} placeholder="Name" />
+          <MyTextInput onChangeText={setPassword} placeholder="Password" isPassword={true} />
         </View>
 
         <View style={{ marginTop: 40 }}>
-          <MyButton onPress={navigateLogin} text="Register" color="#FF5555" />
+          <MyButton onPress={navigateLogin} text="Register" color={loading? "gray" : "#FF5555"} />
           <View style={{ alignItems: "center", marginTop: 20 }}>
             <Text>
               Joined us before? {""} {""}

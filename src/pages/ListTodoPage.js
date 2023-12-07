@@ -2,53 +2,66 @@ import { ScrollView, StyleSheet, Text, View, Image } from "react-native"
 import MyTextInput from "../components/TextInput"
 import Icon from "react-native-vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { CheckBox } from "react-native"
 import MyDropdown from "../components/Dropdown"
+import { supabase } from "../components/config/SupabaseClient"
 
-const data = [
-  {
-    title: "Study - Golang",
-    description:
-      "Learn Golang to improve fundamentals and familiarize with coding",
-    date: new Date(),
-    backgroundColor: "#DAEFFF",
-    category: "Study",
-    color: "#81C8FF",
-  },
-  {
-    title: "Home Work - Mathematics",
-    description: "Do homework math probability",
-    date: new Date(),
-    backgroundColor: "#F1FFEF",
-    category: "Home Work",
-    color: "#FF8181",
-  },
-  {
-    title: "Study - HTML",
-    description:
-      "Learn HTML to improve fundamentals and familiarize with coding",
-    date: new Date(),
-    backgroundColor: "#FFEFEF",
-    category: "Study",
-    color: "#81C8FF",
-  },
-  {
-    title: "Study - Javascript",
-    description:
-      "Learn HTML to improve fundamentals and familiarize with coding",
-    date: new Date(),
-    backgroundColor: "#FEFFDA",
-    category: "Study",
-    color: "#81C8FF",
-  },
-]
+
+// const data = [
+//   {
+//     title: "Study - Golang",
+//     description:
+//       "Learn Golang to improve fundamentals and familiarize with coding",
+//     date: new Date(),
+//     backgroundColor: "#DAEFFF",
+//     category: "Study",
+//     color: "#81C8FF",
+//   },
+//   {
+//     title: "Home Work - Mathematics",
+//     description: "Do homework math probability",
+//     date: new Date(),
+//     backgroundColor: "#F1FFEF",
+//     category: "Home Work",
+//     color: "#FF8181",
+//   },
+//   {
+//     title: "Study - HTML",
+//     description:
+//       "Learn HTML to improve fundamentals and familiarize with coding",
+//     date: new Date(),
+//     backgroundColor: "#FFEFEF",
+//     category: "Study",
+//     color: "#81C8FF",
+//   },
+//   {
+//     title: "Study - Javascript",
+//     description:
+//       "Learn HTML to improve fundamentals and familiarize with coding",
+//     date: new Date(),
+//     backgroundColor: "#FEFFDA",
+//     category: "Study",
+//     color: "#81C8FF",
+//   },
+// ]
 
 const ListTodo = () => {
+
+  const [data, setData] = useState([])
+
   const navigation = useNavigation()
   const [selectedItems, setSelectedItems] = useState([])
   const [searchText, setSearchText] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("") // Tambahkan state kategori terpilih
+  const fetchData = 
+  async () => {
+    const { data, error } = await supabase
+      .from('Ways_Todo')
+      .select()
+      setData(data)
+      console.log(data);
+  }
 
   const navigateToDetail = () => {
     navigation.navigate("Detail")
@@ -80,6 +93,11 @@ const ListTodo = () => {
     )
   })
 
+  useEffect(() => {
+    fetchData()
+
+  }, [])
+
   return (
     <ScrollView backgroundColor={"#F5F5F5"}>
       <View style={styles.container}>
@@ -107,7 +125,7 @@ const ListTodo = () => {
               data={data}
               onValueChange={(category) => setSelectedCategory(category)}
             />
-            <MyDropdown 
+            <MyDropdown
               label="category"
               data={data}
               onValueChange={(category) => setSelectedCategory(category)}
@@ -122,7 +140,7 @@ const ListTodo = () => {
         </View>
 
         <View style={{ marginTop: 40 }}>
-          {filteredData.map((item, index) => (
+          { data.length > 0 && filteredData.map((item, index) => (
             <View
               key={index}
               style={{
@@ -187,7 +205,7 @@ const ListTodo = () => {
               <Text style={{ fontSize: 11, color: "grey", marginTop: 20 }}>
                 <Icon name="calendar" size={12} color="grey" />
                 {""}
-                {""} {item.date.toDateString()}
+                {""} {item.date}
               </Text>
             </View>
           ))}
