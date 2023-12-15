@@ -121,11 +121,6 @@ const ListTodo = () => {
           {/* Dropdown */}
           <View style={{ flexDirection: "row", gap: 8 }}>
             <MyDropdown
-              label="Choose Date"
-              data={data}
-              onValueChange={(category) => setSelectedCategory(category)}
-            />
-            <MyDropdown
               label="category"
               data={data}
               onValueChange={(category) => setSelectedCategory(category)}
@@ -227,7 +222,7 @@ const styles = StyleSheet.create({
   rounded: {
     width: 50,
     height: 50,
-    backgroundColor: "skyblue",
+    backgroundColor: "red",
     position: "absolute",
     top: 0,
     right: 30,

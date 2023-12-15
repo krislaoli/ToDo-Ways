@@ -16,6 +16,7 @@ import BottomNavigator from "../components/BottomNavigator/BottomBar"
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
+
 const MainApp = () => {
   return (
     // navbar bottom
@@ -44,7 +45,7 @@ const MainApp = () => {
 
 const Routes = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="Home"
         component={Home}

@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet, Text, View, ViewBase } from "react-native"
 import React from "react"
 import Icon from "react-native-vector-icons/FontAwesome"
-
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 const Detail = () => {
   return (
-    <ScrollView backgroundColor={"#fff"}>
+    <ScrollView backgroundColor={"#FBF6EE"}>
       <View style={styles.container}>
         <Text style={styles.studyText}>Study</Text>
         <View style={styles.rounded}></View>
@@ -64,9 +64,13 @@ const Detail = () => {
           </Text>
         </View>
       </View>
+      
     </ScrollView>
+    
   )
 }
+
+
 
 export default Detail
 
@@ -79,7 +83,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingHorizontal: 15,
     paddingVertical: 15,
-    marginTop: 120,
+    marginTop: 80,
     borderRadius: 8,
   },
   studyText: {
