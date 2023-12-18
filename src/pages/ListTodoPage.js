@@ -7,45 +7,6 @@ import { CheckBox } from "react-native"
 import MyDropdown from "../components/Dropdown"
 import { supabase } from "../components/config/SupabaseClient"
 
-
-// const data = [
-//   {
-//     title: "Study - Golang",
-//     description:
-//       "Learn Golang to improve fundamentals and familiarize with coding",
-//     date: new Date(),
-//     backgroundColor: "#DAEFFF",
-//     category: "Study",
-//     color: "#81C8FF",
-//   },
-//   {
-//     title: "Home Work - Mathematics",
-//     description: "Do homework math probability",
-//     date: new Date(),
-//     backgroundColor: "#F1FFEF",
-//     category: "Home Work",
-//     color: "#FF8181",
-//   },
-//   {
-//     title: "Study - HTML",
-//     description:
-//       "Learn HTML to improve fundamentals and familiarize with coding",
-//     date: new Date(),
-//     backgroundColor: "#FFEFEF",
-//     category: "Study",
-//     color: "#81C8FF",
-//   },
-//   {
-//     title: "Study - Javascript",
-//     description:
-//       "Learn HTML to improve fundamentals and familiarize with coding",
-//     date: new Date(),
-//     backgroundColor: "#FEFFDA",
-//     category: "Study",
-//     color: "#81C8FF",
-//   },
-// ]
-
 const ListTodo = () => {
 
   const [data, setData] = useState([])
@@ -53,7 +14,7 @@ const ListTodo = () => {
   const navigation = useNavigation()
   const [selectedItems, setSelectedItems] = useState([])
   const [searchText, setSearchText] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("") // Tambahkan state kategori terpilih
+  const [selectedCategory, setSelectedCategory] = useState("") 
   const fetchData = 
   async () => {
     const { data, error } = await supabase
@@ -67,20 +28,16 @@ const ListTodo = () => {
     navigation.navigate("Detail")
   }
 
-  // ! Seleksi Data
   const toggleSelection = (index) => {
     const newSelectedItems = [...selectedItems]
     if (newSelectedItems.includes(index)) {
-      // Remove from selection
       newSelectedItems.splice(newSelectedItems.indexOf(index), 1)
     } else {
-      // Add to selection
       newSelectedItems.push(index)
     }
     setSelectedItems(newSelectedItems)
   }
 
-  // ! Memfilter Data
   const filteredData = data.filter((item) => {
     const lowerCaseSearchText = searchText.toLowerCase()
     const lowerCaseTitle = item.title.toLowerCase()
@@ -116,9 +73,8 @@ const ListTodo = () => {
         <View style={{ marginTop: 20 }}>
           <MyTextInput
             placeholder="Search List ......"
-            onChangeText={(text) => setSearchText(text)} // Tambahkan baris ini
           />
-          {/* Dropdown */}
+          {/*  */}
           <View style={{ flexDirection: "row", gap: 8 }}>
             <MyDropdown
               label="category"
