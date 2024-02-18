@@ -1,5 +1,5 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {
   AddCategory,
@@ -9,13 +9,11 @@ import {
   ListTodo,
   Login,
   Register,
- 
-} from "."
-import BottomNavigator from "../components/BottomNavigator/BottomBar"
+} from ".";
+import BottomNavigator from "../components/BottomNavigator/BottomBar";
 
-const Stack = createNativeStackNavigator()
-const Tab = createBottomTabNavigator()
-
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const MainApp = () => {
   return (
@@ -39,9 +37,9 @@ const MainApp = () => {
         component={AddList}
         options={{ headerShown: false }}
       />
-    </Tab.Navigator> 
-  )
-}
+    </Tab.Navigator>
+  );
+};
 
 const Routes = () => {
   return (
@@ -72,7 +70,7 @@ const Routes = () => {
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
-export default Routes
+export default Routes;
